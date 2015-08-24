@@ -1,0 +1,12 @@
+//Common libraries for every sass
+@import 'libraries/variables-and-colors';
+
+@import 'vendor/bootstrap/bootstrap/mixins';
+@import 'libraries/metronic-learnlinq/components/mixins';           // vendor metronic-learnlinq framework mixings
+@import "mixins";
+
+/**
+ * Recursive import
+ * Where the styles from the components are injected
+ */
+@import 'concate-components';

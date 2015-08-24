@@ -1,0 +1,193 @@
+.custom-search-form {
+    display: inline-block;
+    margin-right: 30px;
+    .form-control {
+        width: 340px;
+        border: 1px solid #e4e4e4;
+        border-right: none;
+        height: 35px;
+        font-size: 1.1em;
+        &:focus {
+            border: 1px solid $brand-special;
+        }
+    }
+    .btn-special {
+        height: 35px;
+        width: 80px;
+    }
+}
+
+.library-section {
+    // Button add element
+    .add-element-button {
+        padding: auto 30px;
+        float: right;
+    }
+}
+
+
+// Group button for filters
+.btn-group.filter {
+    .dropdown-toggle, .single-button {
+        width: 75px;
+        height: 35px;
+    }
+    .btn {
+        i {
+           font-size: 1.2em;
+           margin-right: 7px;
+        }
+        background-color: $button-filter-bc;
+        color: $button-filter-text;
+        border: 1px solid $button-filter-border;
+        &:hover {
+            background-color: $button-filter-bc-hover;
+        }
+        &.single-button{
+            i{
+                font-size: 1.4em;
+                margin-right: 0px;
+            }
+        }
+    }
+
+    .btn-checkbox {
+        .btn {
+            border-right: none;
+        }
+        .split.dropdown-toggle {
+            border-left: none;
+            border-right: none;
+        }
+    }
+
+}
+
+// Button with checkbox inside
+.btn-group.btn-checkbox {
+    label {
+        padding: 0;
+        margin: 0;
+    }
+    .btn {
+        width: 45px;
+    }
+    .split.dropdown-toggle {
+        height: 35px;
+        width: 30px;
+    }
+}
+
+//
+// Abolute position for contents with scrollbar
+//
+.portlet-complete-header{
+    background-color: #fff;
+    padding: 20px 10px;
+    position: relative;
+
+}
+.portlet-complete{
+    background-color: #fff;
+    position: absolute;
+    top: 147px; right: 20px; left: 20px; bottom: 10px;
+    overflow: hidden;
+    .main{
+        //background-color: yellow;
+        position: absolute;
+        padding: 7px 10px;
+        top: 5px; right:22%; left: 0px; bottom: 0px;
+        overflow: auto;
+    }
+    .filter-side{
+        //background-color: blue;
+        position: absolute;
+        top: 5px; right:0; left: 78%; bottom: 0px;
+        overflow: hidden;
+        padding-left: 0px;
+        .header{
+            padding-left: 10px;
+            font-size: 1.5em;
+            position: relative;
+            padding-top: 10px;
+        }
+        .body{
+            //background-color: green;
+            padding-left: 10px;
+            position:absolute;
+            top: 50px; right:0; left: 0; bottom: 0px;
+            overflow: auto;
+
+            ul{
+                list-style: none;
+                padding: 0;
+                margin: 0 0 10px 10px;
+                li{
+                    padding: 0 0 10px 0;
+                    label.checkbox{
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+// Material
+.material{
+    position: relative;
+    margin-bottom: 10px;
+    background-color: $list-bc;
+    height: 55px;
+    vertical-align: middle;
+    &:hover{
+        background-color: $list-bc-hover;
+    }
+    //Asign colors for the different types
+    &.type-type1{
+        border-left: 3px $logo-yellow solid;
+    }
+
+    .selector{
+        float: left;
+        margin-right: 20px;
+        img{
+            width: 40px;
+            display: inline-block;
+        }
+    }
+
+    .name{
+        //display: inline-block;
+        padding-top: 10px;
+        font-size: 1.1em;
+    }
+    .type{
+        display: inline-block;
+        font-weight: 600;
+        margin-right: 10px;
+    }
+    .description{
+        display: inline-block;
+        font-weight: 400;
+    }
+
+    .actions{
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        i{
+            cursor: pointer;
+            margin-left: 15px;
+            font-size: 1.2em;
+            color: #CCCCCC;
+
+            &:hover{
+              color: #666666;
+            }
+        }
+    }
+
+}

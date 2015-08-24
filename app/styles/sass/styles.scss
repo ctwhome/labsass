@@ -1,0 +1,37 @@
+//Common libraries for every sass
+@import 'libraries/variables-and-colors';
+
+
+@import 'vendor/bootstrap/bootstrap/mixins';
+@import 'libraries/metronic-learnlinq/components/mixins';           // vendor metronic-learnlinq framework mixings
+@import "mixins";
+
+// Import the fonts
+@import 'libraries/fonts';
+
+
+/* BASE - Base Variable file along with starting point Mixins and Placeholders.
+========================================================================== */
+@import 'libraries/responsive';            // If not using any framework
+@import 'libraries/main';
+
+/* libraries - Structure and layout files.
+========================================================================== */
+
+@import 'libraries/metronic-learnlinq/layout/print';                // print layout
+@import 'libraries/metronic-learnlinq/layout/header';               // page header
+@import 'libraries/metronic-learnlinq/components';
+@import 'libraries/metronic-learnlinq/plugins';
+@import 'libraries/metronic-learnlinq/themes/grey';                 // blue, light, dark
+
+
+/* Components - Structure and layout files.
+========================================================================== */
+
+@import '../../Scripts/bower-components/angular-ui-grid/ui-grid-unstable.min.css';
+
+
+
+/* Sections - PAGES
+========================================================================== */
+@import 'sections/user-profile';

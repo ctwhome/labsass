@@ -1,0 +1,21 @@
+﻿/*
+    Learlinq
+    ********
+
+    INPUT GROUPS
+*/
+
+.input-group{
+
+    &.brand-primary{
+        input:focus{
+            border-color: $brand-primary;
+        }
+        .btn{
+            background-color: $brand-primary;
+            &:hover{
+                background-color: darken($brand-primary,10%);
+            }
+        }
+    }
+}

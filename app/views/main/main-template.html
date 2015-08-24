@@ -1,0 +1,32 @@
+<div class="main-container-wrapper" ng-class="{'sidebar-closed' : toggleState}">
+    <!-- top bar - navbar -->
+    <ng-include src="'views/main/menu-navbar.html'"></ng-include>
+
+    <div class="clearfix"></div>
+
+
+    <!-- CONTAINER -->
+    <div class="page-container">
+        <!-- SIDEBAR -->
+        <ng-include src="'views/main/menu-sidebar.html'"></ng-include>
+
+        <!-- CONTENT -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <div ui-view class="animated fadeIn" id="page-content-view"></div>
+            </div>
+        </div>
+    </div>
+    <!-- END CONTAINER -->
+
+    <!-- FOOTER -->
+    <!--<ng-include src="'views/main/footer.html'"></ng-include> &lt;!&ndash; END FOOTER &ndash;&gt;-->
+    <div class="page-footer">
+        <div class="page-footer-inner">
+            2015 &copy; Learnlinq by L&M Software.
+        </div>
+        <div class="scroll-to-top">
+            <i class="icon-arrow-up"></i>
+        </div>
+    </div>
+</div>

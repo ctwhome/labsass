@@ -1,0 +1,76 @@
+<!-- BEGIN PAGE HEADER-->
+<h3 class="page-title">
+    Template builder
+    <small>drag and drop in progress</small>
+</h3>
+
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="portlet light">
+    <div class="portlet-body">
+        <div class="row">
+            <div class="col-md-12">
+
+                creating the stuff for the sortable!
+
+                <h3>code example</h3>
+                <ul>
+                    <li><a target="_blank" href="https://github.com/a5hik/ng-sortable">ng sortable</a></li>
+                    <li><a target="_blank" href="http://a5hik.github.io/ng-sortable/#/">oficial demo</a></li>
+                    <li><a target="_blank" href="http://codepen.io/yukulele/pen/BlFCr"> codepen demo http://codepen.io/yukulele/pen/BlFCr</a></li>
+
+                </ul>
+
+
+                <div class="info">
+                    <div class="update">list 1</div>
+                    <pre>{{itemsList.items1 }}</pre>
+                </div>
+
+                <div class="info">
+                    <div class="update">list 2</div>
+                    <pre>{{itemsList.items2}}</pre>
+                </div>
+
+
+<h3>list 1</h3>
+                <div id="sortable-container">
+                    <div class="sortable-row" as-sortable="sortableOptions" ng-model="itemsList.items1">
+                        <div ng-repeat="item in itemsList.items1" as-sortable-item>
+                            <div as-sortable-item-handle>
+                                <h4>{{item.Label}}</h4>
+                                <p>description</p>
+                            </div>
+                        </div>
+                    </div>
+<h3>list 2</h3>
+                    <div class="sortable-row" as-sortable="sortableOptions" ng-model="itemsList.items2">
+                        <div ng-repeat="item in itemsList.items2" as-sortable-item>
+                            <div as-sortable-item-handle>
+                                <h4>{{item.Label}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+<div class="example2">
+                <div class="info">
+                    <div class="update">updated</div>
+                    <pre>{{items|json}}</pre>
+                </div>
+                <form action="#" ng-submit="additem($event)">
+                    <input type="text" ng-model="newitem" placeholder="add item" />
+                </form>
+                <ul ui-sortable="{axis:'y'}" ng-model="items">
+                    <li ng-repeat="item in items track by $index">{{capfirst(item)}} <span ng-click="removeitem($index)">&times;</span></li>
+                </ul>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END PAGE CONTENT-->

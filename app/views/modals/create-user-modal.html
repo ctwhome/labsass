@@ -1,0 +1,162 @@
+<div class="modal-header">
+    <h3>{{modalOptions.headerText}}</h3>
+</div>
+<div class="modal-body">
+    <!--<p>{{modalOptions.bodyText}}</p>-->
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="form-horizontal col-md-11 col-md-offset-1">
+                <div class="form-horizontal" role="form">
+                    <form name="createUserForm" novalidate >
+                        <fieldset>
+                            <legend>PROFILE</legend>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label"></label>
+
+                                <div class="col-sm-6">
+                                    <!--Change photo-->
+                                    <div class="change-photo">
+                                        <img src="assets/images/user-picture.png">
+
+                                        <div><i class="fa fa-camera"></i> Change photo</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="inputName" class="col-sm-4 control-label">
+                                    Name
+                                </label>
+
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="inputName" placeholder="Name"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="inputUsername" class="col-sm-4 control-label">
+                                    Username
+                                </label>
+
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="inputUsername" placeholder="Username"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <lbel for="inputEmail" class="col-sm-4 control-label" ng-model="email.text" required>
+                                    Email
+                                </lbel>
+
+                                <div class="col-sm-6">
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="email@example.com"/>
+                                    <small><span ng-show="createUserForm.input.$error.email">Not valid email!</span></small>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Language</label>
+
+                                <div class="col-sm-6">
+                                    <select name="" id="select2_sample_modal_4" class="form-control select2 select2-offscreen" tabindex="-1" title="">
+                                        <option value="EN">English</option>
+                                        <option value="NL">Netherlands</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputEmail" class="col-sm-4 control-label">
+                                    Roles
+                                </label>
+
+                                <div class="col-sm-6">
+                                    <label class="checkbox">Rol 1
+                                        <input type="checkbox"><span class="cb-check"></span></label>
+                                    <label class="checkbox">Rol 2
+                                        <input type="checkbox"><span class="cb-check"></span></label>
+                                    <label class="checkbox">Rol 3
+                                        <input type="checkbox"><span class="cb-check"></span></label>
+                                    <label class="checkbox">Rol 4
+                                        <input type="checkbox"><span class="cb-check"></span></label>
+                                    <label class="checkbox">Rol 5
+                                        <input type="checkbox"><span class="cb-check"></span></label>
+                                    <label class="checkbox">Rol 6
+                                        <input type="checkbox"><span class="cb-check"></span></label>
+                                </div>
+                            </div>
+
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>SECURITY</legend>
+
+                            A temporary pasword will be assigned. <a ng-click="isCollapsed = !isCollapsed">Set password
+                            instead
+                            <i class="fa fa-sort-desc"></i></a>
+
+                            <div collapse="isCollapsed">
+                                <br/>
+
+                                <!--Add "error" class inside of form-group-->
+                                <div class="form-group" ng-class="{'error': showError}">
+                                    <label class="col-sm-4 control-label">Current password</label>
+
+                                    <div class="col-sm-6 centered">
+                                        <input type="password" class="form-control" name="" id="">
+
+                                        <div class="error">Incorrect password</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" ng-class="{'error': showError}">
+                                    <label class="col-sm-4 control-label">New password</label>
+
+                                    <div class="col-sm-6 centered">
+                                        <input ng-model="pw" type="password" class="form-control" name="">
+                                        <div class="error">Incorrect password</div>
+                                        <div class="info">8 caracters min</div>
+                                    </div>
+                                </div>
+
+
+                                <!--DIRECTIVE-->
+                                <!--http://codepen.io/brunoscopelliti/pen/nFlvm-->
+                                <div class="form-group" ng-class="{'error': showError}">
+                                    <label class="col-sm-4 control-label">Repeat password</label>
+
+                                    <div class="col-sm-6 centered">
+                                        <!--<input type="password" name="" id="">-->
+                                        <input type="password" class="form-control" name="pw" id="pw"/>
+
+                                        <div class="error">Passwords do not match</div>
+                                        <ul id="strength" check-strength="pw"></ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn"
+            data-ng-click="modalOptions.close()">
+        {{modalOptions.closeButtonText}}
+    </button>
+    <button class="btn btn-primary"
+            data-ng-click="modalOptions.ok();">
+        {{modalOptions.actionButtonText}}
+    </button>
+</div>

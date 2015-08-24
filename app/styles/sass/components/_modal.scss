@@ -1,0 +1,26 @@
+﻿/*
+* Modification for bootstrap modals
+*/
+
+//
+.modal {
+    margin-top: 20px;
+    .modal-header{
+        h3{
+            margin: 0;
+        }
+    }
+}
+.modal-body{
+    max-height: calc(100vh - 230px);
+    overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+    .modal {
+        margin-top: 20px;
+    }
+    .modal-body{
+        max-height: calc(100vh - 180px);
+    }
+}

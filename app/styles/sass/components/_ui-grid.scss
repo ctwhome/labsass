@@ -1,0 +1,66 @@
+﻿/*
+    Learlinq
+    ********
+
+    Modifications fot ui-grid
+*/
+
+$grid-secundary-color:#dddddd;
+$grid-row-even-bg: #f5f5f5;
+
+.ui-grid{
+    border: none;
+}
+
+.ui-grid-header{
+    border: none;
+}
+
+.ui-grid-top-panel{
+    background: $grid-secundary-color;
+    font-weight: normal;
+    text-transform: lowercase;
+}
+
+.ui-grid-viewport{
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    border: 1px solid lighten($grid-secundary-color, 5%);
+}
+
+.ui-grid-cell{
+    height: 35px !important;
+    border-right: 1px solid $grid-secundary-color;
+    border-bottom: 1px solid $grid-secundary-color;
+}
+.ui-grid-row:nth-child(2n) .ui-grid-cell{
+    background-color: $grid-row-even-bg;
+}
+
+.ui-grid-header-cell{
+    border: none;
+}
+
+.ui-grid-pager-count{
+    margin-top: 3px;
+    margin-right:10px;
+}
+
+.portlet-complete .grid{
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    right: 10px;
+    bottom:10px;
+}
+
+// FIX THIS STYLES
+.watermark {
+    position: absolute;
+    top : 80px;
+    opacity: 0.25;
+    font-size: 2em;
+    width: 100%;
+    text-align: center;
+    z-index: 1000;
+}

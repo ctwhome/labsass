@@ -1,0 +1,124 @@
+/* ******************************************* */
+/* Optional CSS, default style for ng-sortable */
+/* ******************************************* */
+
+// Items list
+.as-sortable-item, .as-sortable-placeholder {
+
+    margin: 1px 2px 5px 1px;
+    border-radius: 10px;
+}
+
+// Item to sort/drag
+.as-sortable-item {
+    border: solid 1px darkgrey;
+
+}
+
+// Drag Handle
+.as-sortable-item-handle {
+    background-color: #2ea6ab;
+    min-height: 110px;
+    color: white;
+    cursor: move;
+}
+
+.as-sortable-placeholder {
+    border: 1px dashed darkgrey;
+    box-sizing: border-box;
+    background-color: #dbdbdb;
+}
+
+.as-sortable-drag {
+    //opacity: .8;
+    background-color: green;
+}
+
+.as-sortable-hidden {
+}
+
+/* Put your css in here */
+
+.as-sortable-item,
+.as-sortable-placeholder {
+    display: inline-block;
+    width: 124px;
+
+    float: left;
+}
+
+.sortable-row:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+
+#sortable-container {
+    display: inline-block;
+}
+
+
+.sortable-row{
+    background-color: #bfbfbf;
+}
+
+
+
+// example 2
+.example2 {
+    clear: both;
+    span {
+        float: left;
+        cursor: pointer;
+        padding: 0 .3em;
+        border: 1px solid black;
+        margin-right: .5em;
+        background: #ccc;
+    }
+    ul {
+        list-style-type: none;
+        position: relative;
+    }
+    li {
+        height: 1.8em;
+        cursor: grab;
+    }
+    .ui-sortable-helper {
+        cursor: grabbing;
+    }
+    .update {
+        color: blue;
+        opacity: 0;
+
+        animation: flash1 1s ease-out;
+    }
+    .flash {
+        animation: flash2 1s ease-out;
+    }
+    .info {
+        float: right;
+    }
+    pre {
+        width: 10em;
+        color: #999;
+    }
+    @keyframes flash1 {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes flash2 {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+}

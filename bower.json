@@ -1,0 +1,24 @@
+{
+  "name": "angular-boilerplate",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ctwhome/angular-boilerplate",
+  "authors": [
+    "Jesus <ctw@ctwhome.com>"
+  ],
+  "main": "app/index.html",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ng-sortable": "~1.3.0"
+  }
+}

@@ -1,0 +1,54 @@
+$bc-change-photo: #f0f0f0;
+
+// Profile page
+.user-profile{
+    img{
+        float: left;
+        width: 100px;
+        height: 100px;
+        margin-right: 25px;
+        margin-top: 5px;
+    }
+    .name{
+        font-size: 2em;
+        font-weight: 100;
+    }
+    .position{
+    }
+    .btn{
+        margin-top: 10px;
+        padding: 2px 10px;
+        font-size: 0.9em;
+    }
+
+}
+
+
+
+
+
+//
+// Modal
+//
+.modal fieldset legend{
+    padding: 30px 0 0 0px;
+}
+
+.change-photo {
+    background-color: $bc-change-photo;
+    width: 140px;
+    //margin: 0 auto 15px;
+    padding-bottom: 10px;
+    border-radius: 5px !important;
+    @include transition(background, .3, ease);
+
+    img {
+        width: 100px;
+        padding: 10px;
+    }
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+        background-color: darken($bc-change-photo, 5%);
+    }
+}

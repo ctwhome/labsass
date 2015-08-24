@@ -1,0 +1,135 @@
+<!-- BEGIN PAGE HEADER-->
+<h3 class="page-title">
+    Library
+    <small>Work in progress</small>
+</h3>
+
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+
+
+<div class="library-section">
+
+    <div class="portlet-complete-header">
+        <div class="input-group custom-search-form">
+            <input type="text" class="form-control" placeholder="Search material" autofocus ng-model="query">
+            <button class="btn btn-special" type="button">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </div>
+
+        <div class="btn-group filter" role="group" ng-controller="dropdown-controller">
+
+            <!-- Simple dropdown -->
+            <!-- Split button -->
+            <div class="btn-group btn-checkbox" dropdown>
+                <button type="button" class="btn btn-danger"
+                        tooltip-placement="top"
+                        tooltip="Select All"
+                        tooltip-popup-delay="300"
+                        >
+                    <label class="checkbox">
+                        <input type="checkbox">
+
+                        <div class="cb-check"></div>
+                    </label>
+                </button>
+                <button type="button" class="btn btn-danger split dropdown-toggle" dropdown-toggle>
+                    <span class="caret"></span>
+                    <span class="sr-only">Split button!</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-default">
+                    <li><a href=""> Select all</a></li>
+                    <li><a href=""> Select template</a></li>
+                    <li><a href=""> Select others </a></li>
+                </ul>
+            </div>
+
+            <!-- Single button -->
+            <div class="btn-group" dropdown is-open="status.isopen">
+                <button type="button" class="btn btn-primary dropdown-toggle"
+                        dropdown-toggle ng-disabled="disabled"
+                        tooltip-placement="top" tooltip="Archive / Unarchive" tooltip-popup-delay="300">
+                    <i class="fa fa-archive"></i><span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Archive</a></li>
+                    <li><a href="#">Unarchive</a></li>
+                </ul>
+            </div>
+
+            <button type="button" class="btn btn-primary single-button"
+                    tooltip-placement="top" tooltip="Delete" tooltip-popup-delay="300">
+                <i class="fa fa-trash"></i></button>
+        </div>
+
+        <div class="add-element-button">
+            <button class="btn btn-primary add-element" type="button">
+                Add element
+            </button>
+        </div>
+        <hr/>
+    </div>
+
+    <div class="portlet-complete">
+        <div class="main">
+            <!--List of material-->
+            <div ng-repeat="material in materials | filter:query as results">
+                <div class="material type-type1">
+                    <div class="selector">
+                        <label class="checkbox">
+                            <input type="checkbox">
+
+                            <div class="cb-check"></div>
+                        </label>
+                        <img src="img/material-icon.png" alt="material"/>
+                    </div>
+                    <div class="name">
+                        <a href="">{{material.name}}</a>
+                    </div>
+                    <div class="type">{{material.type}}</div>
+                    <div class="description">{{material.desc}}</div>
+                    <div class="actions">
+                        <i class="fa fa-archive" tooltip-placement="top" tooltip="Archive" tooltip-popup-delay="100"></i>
+                        <i class="fa fa-trash" tooltip-placement="top" tooltip="Delete" tooltip-popup-delay="100"></i>
+                        <i class="fa fa-pencil" tooltip-placement="top" tooltip="Edit" tooltip-popup-delay="100"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="no-results" ng-if="results.length == 0">
+                No results for this search...
+            </div>
+
+
+        </div>
+
+        <!--Filter column-->
+        <!--Use this for the filter-->
+        <!--http://jsfiddle.net/rzgWr/13/-->
+
+        <div class="filter-side">
+            <div class="header">
+                Refine search
+            </div>
+            <div class="body">
+
+                <ul>
+                    <li>Filter by type ({{types.length}})</li>
+                    <ul>
+                        <li ng-repeat="types in types = (types | unique:'type')">
+                            <label class="checkbox">
+                                <input type="checkbox" data-ng-model="query" ng-true-value="'yellow'" ng-true-false="''">
+
+                                <div class="cb-check"></div>
+                                {{types.type}}
+                            </label>
+                        </li>
+                    </ul>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- END PAGE CONTENT-->
+</div>

@@ -1,0 +1,150 @@
+/*
+    Learlinq
+    ********
+
+    Portlets modifications
+*/
+
+//
+// Abolute position for contents with scrollbar
+//
+.portlet-complete-header{
+    background-color: #fff;
+    padding: 20px 10px;
+    position: relative;
+}
+.portlet-complete{
+    background-color: #fff;
+    position: absolute;
+    top: 147px; right: 20px; left: 20px; bottom: 10px;
+    overflow: hidden;
+    .main{
+        //background-color: yellow;
+        position: absolute;
+        padding: 7px 10px;
+        top: 5px; right:0; left: 0px; bottom: 0px;
+        overflow: auto;
+    }
+}
+
+//
+// Portlet complete with filter side
+//
+.portlet-complete.filter-side{
+    background-color: #fff;
+    position: absolute;
+    top: 147px; right: 20px; left: 20px; bottom: 10px;
+    overflow: hidden;
+    .main{
+        //background-color: yellow;
+        position: absolute;
+        padding: 7px 10px;
+        top: 5px; right:22%; left: 0px; bottom: 0px;
+        overflow: auto;
+    }
+    .filter-side{
+        //background-color: blue;
+        position: absolute;
+        top: 5px; right:0; left: 78%; bottom: 0px;
+        overflow: hidden;
+        padding-left: 0px;
+        .header{
+            padding-left: 10px;
+            font-size: 1.5em;
+            position: relative;
+            padding-top: 10px;
+        }
+        .body{
+            //background-color: green;
+            padding-left: 10px;
+            position:absolute;
+            top: 50px; right:0; left: 0; bottom: 0px;
+            overflow: auto;
+
+            ul{
+                list-style: none;
+                padding: 0;
+                margin: 0 0 10px 10px;
+                li{
+                    padding: 0 0 10px 0;
+                    label.checkbox{
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+
+/**
+* Action bar
+*/
+.portlet .actions-bar{
+    position: relative;
+    height: 45px;
+
+}
+
+.custom-search-form.blue{
+    input:focus{
+        // border-color:red;
+    }
+    .btn{
+        // background-color: blue;
+    }
+}
+
+// Group button for filters
+.btn-group.filter {
+    .dropdown-toggle, .single-button {
+        width: 75px;
+        height: 35px;
+    }
+    .btn {
+        i {
+            font-size: 1.2em;
+            margin-right: 7px;
+        }
+        background-color: $button-filter-bc;
+        color: $button-filter-text;
+        border: 1px solid $button-filter-border;
+        &:hover {
+            background-color: $button-filter-bc-hover;
+        }
+        &.single-button{
+            i{
+                font-size: 1.4em;
+                margin-right: 0px;
+            }
+        }
+    }
+
+    .btn-checkbox {
+        .btn {
+            border-right: none;
+        }
+        .split.dropdown-toggle {
+            border-left: none;
+            border-right: none;
+        }
+    }
+
+}
+
+// Button with checkbox inside
+.btn-group.btn-checkbox {
+    label {
+        padding: 0;
+        margin: 0;
+    }
+    .btn {
+        width: 45px;
+    }
+    .split.dropdown-toggle {
+        height: 35px;
+        width: 30px;
+    }
+}

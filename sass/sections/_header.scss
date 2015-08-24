@@ -1,0 +1,26 @@
+.page-header.navbar .page-logo {
+    background: transparent;
+}
+
+.page-header.navbar .page-logo .logo-default {
+    margin: 10px 0 0 0;
+}
+
+.page-header.navbar .top-menu .navbar-nav > li.dropdown > .dropdown-toggle:last-child {
+    padding-right: 16px;
+}
+
+.menu-toggler-icon {
+    float: left;
+    margin: 30px 15px;
+    background-image: url("../assets/images/sidebar-toggler-inverse.png");
+    display: block;
+    width: 16px;
+    height: 13px;
+}
+.logo-company{
+    float: left;
+    margin: 10px 0 0 15px;
+}
+
+

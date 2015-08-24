@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Learnlinq Templates</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+
+    <!-- STYLES -->
+    <link rel="shortcut icon" href="favicon.ico"/>
+     <link rel="stylesheet" href="styles/vendor.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/components.css">
+
+
+    <!-- STYLES from the style guide-->
+    <!-- <link rel="stylesheet" href="styles/vendor.css">
+    <link rel="stylesheet" href="styles/styles.css">
+     -->
+
+
+<!--FIXME DELETE JQUERY-->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+</head>
+
+<body ng-app="App" class="page-header-fixed page-container-bg-solid page-sidebar-closed-hide-logo page-header-fixed-mobile page-footer-fixed1">
+
+    <div ui-view class="main-container"></div>
+
+    <!-- Angular js  -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/angular-ui-utils/ui-utils.min.js"></script>
+    <script src="bower_components/angular-ui-utils/ui-utils-ieshiv.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <!--Required module for multiselect-->
+    <script src="bower_components/angular-ui-select/dist/select.js"></script>
+    <link src="bower_components/angular-ui-select/dist/select.css"/>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/ng-sortable/dist/ng-sortable.min.js"></script>
+
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main-controller.js"></script>
+    <script src="scripts/controllers/nav-bar-controller.js"></script>
+    <script src="scripts/controllers/login-page-controller.js"></script>
+    <script src="scripts/controllers/library-controller.js"></script>
+    <script src="scripts/controllers/dashboard-controller.js"></script>
+    <script src="scripts/controllers/my-profile-controller.js"></script>
+    <script src="scripts/controllers/system-settings-controller.js"></script>
+    <script src="scripts/controllers/users-admin-controller.js"></script>
+    <script src="scripts/controllers/templatebuilder-controller.js"></script>
+    <script src="components/lab/lab.controller.js"></script>
+
+    <script src="scripts/controllers/dropdown-controller.js"></script>
+    <script src="scripts/controllers/tooltip-controller.js"></script>
+
+    <script src="scripts/directives/toggle-class-directive.js"></script>
+<!-- endbuild -->
+
+</body>
+
+</html>

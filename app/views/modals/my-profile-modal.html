@@ -1,0 +1,86 @@
+<div class="modal-header">
+    <h3 class="modal-title">Edit profile</h3>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal col-md-11 col-md-offset-1">
+        <fieldset>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label"></label>
+
+                <div class="col-sm-6">
+                    <!--Change photo-->
+                    <div class="change-photo">
+                        <img src="img/user-picture.png">
+
+                        <div><i class="fa fa-camera"></i> Change photo</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Language</label>
+
+                <div class="col-sm-6">
+                    <select name="" id="select2_sample_modal_4" class="form-control select2 select2-offscreen" tabindex="-1" title="">
+                        <option value="EN">English</option>
+                        <option value="NL">Netherlands</option>
+                    </select>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Security</legend>
+            <!--Add "error" class inside of form-group-->
+            <div class="form-group" ng-class="{'error': showError}">
+                <label class="col-sm-4 control-label">Current password</label>
+
+                <div class="col-sm-6 centered">
+                    <input type="password" class="form-control" name="" id="">
+
+                    <div class="error">Incorrect password</div>
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="{'error': showError}">
+                <label class="col-sm-4 control-label">New password</label>
+
+                <div class="col-sm-6 centered">
+                    <input ng-model="pw" type="password" class="form-control" name="">
+                    <div class="error">Incorrect password</div>
+                    <div class="info">8 caracters min</div>
+                </div>
+            </div>
+
+
+            <!--DIRECTIVE-->
+            <!--http://codepen.io/brunoscopelliti/pen/nFlvm-->
+            <div class="form-group" ng-class="{'error': showError}">
+                <label class="col-sm-4 control-label">Repeat password</label>
+
+                <div class="col-sm-6 centered">
+                    <!--<input type="password" name="" id="">-->
+                    <input type="password" class="form-control" name="pw" id="pw"/>
+
+                    <div class="error">Passwords do not match</div>
+                    <ul id="strength" check-strength="pw"></ul>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+
+</div>
+<div class="clearfix"></div>
+
+<div class="modal-footer">
+
+    <!--FIXME use only for debuging-->
+    <a class="pull-left" ng-click="viewErrors()">View errors</a>
+
+
+    <a ng-click="cancel()">Cancel</a>
+    <button class="btn btn-primary" ng-click="ok()">Save</button>
+</div>
