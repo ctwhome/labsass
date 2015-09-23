@@ -1,7 +1,5 @@
 var gulp = require("gulp");
 
-var typescript = require('gulp-tsc');
-
 var filter = require('gulp-filter');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
@@ -41,9 +39,26 @@ var vars = {
 /**
  * Default task with proxy
  */
-gulp.task('default', ['sass', 'sass-vendor', 'sass-components', 'browser-sync'],
+
+var files =[
+    "styles/**/*.css",
+    "./app/**/*.html",
+    "./app/**/*.cshtml",
+    "./index.cshtml",
+    'app/**/*.json',
+    "./app/**/*.js"
+];
+gulp.task('default', ['sass', 'sass-vendor', 'sass-components'],
     function () {
         //gulp.watch("./**/*.js").on('change', browserSync.reload);
+
+
+        browserSync.init({
+            server: "./app"
+        });
+
+        gulp.watch(files).on('change', browserSync.reload);
+
         gulp.watch(vars.src.scss, ['sass']);
         gulp.watch(vars.src.scssvendor, ['sass-vendor']);
         gulp.watch(vars.src.components, ['sass-components']);

@@ -16,15 +16,15 @@ var vars = {
         proxy: "http://localhost:11124/",                       // App proxy
         ownServer: "./",
         scss: [
-            "styles/sass/styles.scss",
-            "styles/sass/sections/**/*.scss"
+            "app/styles/sass/styles.scss",
+            "app/styles/sass/sections/**/*.scss"
         ],
-        sections:"styles/sass/sections/**/*.scss",
-        scssvendor: "styles/sass/vendor.scss",
-        scsscomponents: "styles/sass/components.scss",
+        sections:"app/styles/sass/sections/**/*.scss",
+        scssvendor: "app/styles/sass/vendor.scss",
+        scsscomponents: "app/styles/sass/components.scss",
         components: [                                              // Sass injection
             "./app/**/*.scss",
-            "./styles/sass/components/*.scss"
+            "./app/styles/sass/components/*.scss"
         ],
         html: "./**/*.cshtml",
         js: "./app/**/*.js",

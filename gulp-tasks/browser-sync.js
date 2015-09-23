@@ -7,16 +7,16 @@ var files =[
     "./app/**/*.html",
     "./app/**/*.cshtml",
     "./index.cshtml",
+    'app/**/*.json',
     "./app/**/*.js"
 ];
 
 var vars = {
     src: {
         // Sources
+        server: "./app",
         proxy: "http://localhost:11124/",                       // App proxy
         ownServer: "./",
-        scss: "styles/sass/styles.scss",
-        scssvendor: "styles/sass/vendor.scss",
         html: "./**/*.cshtml",
         js: "./app/**/*.js",
     },
@@ -29,11 +29,25 @@ var vars = {
 };
 
 
+
+// reloading browsers
+gulp.task('watch', browserSync.reload);
+
+// Injet only css
+gulp.task('inject', function () {
+    return gulp.src('app/styles/*.css')
+        .pipe(browserSync.stream());
+});
+
+
 gulp.task("browser-sync", function () {
 
+    browserSync({
+        server: vars.src.server
+    });
     browserSync.init(files, {
-        proxy: vars.src.proxy,
-        open: false,
+        //proxy: vars.src.proxy,
+        //open: false,
     });
 });
 

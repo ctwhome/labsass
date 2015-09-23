@@ -58,6 +58,10 @@ gulp.task('inject', function () {
  * Default task "gulp" linked to the LQ app
  */
 gulp.task('default', ['browser-sync'], function () {
+
+
+
+
     gulp.watch([
         'app/**/*.js',
         'app/**/*.json',
