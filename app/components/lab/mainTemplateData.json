@@ -1,0 +1,75 @@
+{
+  "mainName": "Main container template",
+  "icon": "assets/images/material-icon.png",
+  "number": 4,
+  "props": {
+    "color": "green",
+    "isSecuential": true
+  },
+  "items": [{
+    "name": "Container 1",
+    "icon": "assets/images/material-icon.png",
+    "number": 6,
+    "type": "container",
+    "props": {
+      "color": "blue",
+      "isSecuential": true,
+      "isCollapsed": true
+    },
+    "items": [{
+      "name": "Container 1.1",
+      "icon": "assets/images/material-icon.png",
+      "number": 6,
+      "type": "container",
+      "props": {
+        "color": "blue",
+        "isSecuential": true,
+        "isCollapsed": true
+      },
+      "items": [{
+        "name": "Container 1.1.1",
+        "icon": "assets/images/material-icon.png",
+        "number": 6,
+        "type": "container",
+        "props": {
+          "color": "blue",
+          "isSecuential": true,
+          "isCollapsed": true
+        },
+        "items": [{
+          "name": "Container 1.1.1.1",
+          "icon": "assets/images/material-icon.png",
+          "number": 6,
+          "type": "container",
+          "props": {
+            "color": "blue",
+            "isSecuential": true,
+            "isCollapsed": true
+          },
+          "items": [{
+            "name": "Container 1.1.1.1.1",
+            "icon": "assets/images/material-icon.png",
+            "number": 6,
+            "type": "container",
+            "props": {
+              "color": "blue",
+              "isSecuential": true,
+              "isCollapsed": true
+            },
+            "items": [{
+              "name": "Container 1.1.1.1.1.1",
+              "icon": "assets/images/material-icon.png",
+              "number": 6,
+              "type": "container",
+              "props": {
+                "color": "blue",
+                "isSecuential": true,
+                "isCollapsed": true
+              },
+            }]
+          }]
+        }]
+      }]
+    }]
+  }]
+}

@@ -1,25 +1,37 @@
-input.ng-pristine + ul#strength {
-    display:none;
-}
-ul#strength {
-    display:inline;
-    list-style:none;
-    margin:0;
-    padding:0;
-    vertical-align:2px;
-}
-.point:last {
-    margin:0 !important;
-}
-.point {
-    background:#DDD;
-    border-radius:2px;
-    display:inline-block;
-    height:5px;
-    margin-right:1px;
-    width:20px;
-}
+/*
+    PASSWORD STRENGTH
+*/
+.password-strength{
+    margin-top: 10px;
+    display: block; 
+    margin-bottom: 10px;
+    height: 10px; 
+    width: 80px;
+    transition: ease all .4s; 
 
-ul#strength {
-    display:none;
+    &.poor{
+        width:20%;
+        background-color: #bdc3c7;
+    }
+    &.too-short{
+        width:20%;
+        background-color: #c0392b;
+    }
+    &.weak{
+        width:40%;
+        background-color: #f39c12 ;
+    }
+    &.reasonable{
+        width:60%;
+        background-color: #f1c40f;
+    }
+    &.good{
+        width:80%;
+        background-color: #1abc9c;
+    }
+    &.strong{
+        width:100%;
+        background-color: #27ae60;
+    }
+
 }

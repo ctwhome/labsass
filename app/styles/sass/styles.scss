@@ -3,7 +3,9 @@
 
 
 @import 'vendor/bootstrap/bootstrap/mixins';
+@import 'vendor/bootstrap/bootstrap/mixins';
 @import 'libraries/metronic-learnlinq/components/mixins';           // vendor metronic-learnlinq framework mixings
+@import 'libraries/_variables-bootstrap';
 @import "mixins";
 
 // Import the fonts
@@ -28,10 +30,11 @@
 /* Components - Structure and layout files.
 ========================================================================== */
 
-@import '../../Scripts/bower-components/angular-ui-grid/ui-grid-unstable.min.css';
+
 
 
 
 /* Sections - PAGES
 ========================================================================== */
 @import 'sections/user-profile';
+@import 'sections/template-builder';

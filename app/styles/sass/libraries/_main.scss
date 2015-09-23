@@ -26,7 +26,7 @@ body {
 a {
     cursor: pointer;
     &:hover{
-        text-decoration: none !important;
+        //text-decoration: none;
     }
 }
 b,strong{
@@ -43,19 +43,20 @@ b,strong{
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0px;
+    bottom: 0;
     overflow: auto;
 }
 
 // Disable select except parragrapsh and links
-*{
-    //-webkit-user-select: none;
-    //-khtml-user-select: none;
-    //-moz-user-select: none;
-    //-o-user-select: none;
-    //user-select: none;
+div, .btn{
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-overflow-scrolling: touch;
 }
-.portlet, .modal{
+/*.portlet, .modal{
     p, a, label, input, span, div, strong, li, h1,h2,h3,h4,h5,h6{
         -webkit-user-select: text;
         -khtml-user-select: text;
@@ -63,7 +64,7 @@ b,strong{
         -o-user-select: text;
         user-select: text;
     }
-}
+}*/
 
 // Delete shadow of the elements
 .noshadow {
@@ -85,4 +86,14 @@ b,strong{
     //&:hover{
     //    background-color: $list-bc-hover;
     //}
+}
+// disable X to clear inputs in internet explorer
+input[type=text]::-ms-clear{
+    width:0;
+    height:0;
+}
+
+.error-input{
+    color: $brand-primary;
+    font-size: .9em;
 }

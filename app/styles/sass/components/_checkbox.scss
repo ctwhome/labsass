@@ -1,8 +1,11 @@
-$color-checkbox-bg: #45B6af; // Light blue
 
 .checkbox {
   padding: 1rem;
   cursor: pointer;
+}
+
+label.block{
+    display:block;
 }
 
 input[type="checkbox"] {

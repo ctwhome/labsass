@@ -1,0 +1,43 @@
+<div class="header">
+    <div class="title">
+        <img src="{{val.icon}}" alt="Template Image"/>
+        <span class="caption-subject font-red-sunglo bold uppercase">
+                {{val.name}}
+        </span>
+
+    </div>
+
+    <div class="flex"></div>
+
+    <div class="actions">
+
+        <a class="collapse-button" ng-class="isCollapse ? 'expand' : 'collapse'"
+           ng-click="isCollapse = !isCollapse">
+
+
+        </a>
+        <a class="btn btn-circle btn-icon-only btn-default" href="#"
+        ng-click="deleteMe()" ng-show="val.name">
+
+            <i class="icon-trash"></i>
+        </a>
+
+        <a class="btn btn-circle btn-icon-only btn-default" href="#">
+            <i class="icon-wrench"></i>
+        </a>
+
+        <a class="btn btn-circle btn-icon-only btn-default" href="#">
+            <i class="icon-info"></i>
+        </a>
+        <a class="btn green-haze btn-circle btn-sm" href="" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+
+            <i class="fa fa-plus"></i>
+            Add
+        </a>
+
+
+        <span class="number-data">
+            {{val.number}}
+        </span>
+    </div>
+</div>
