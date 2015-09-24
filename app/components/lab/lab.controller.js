@@ -9,14 +9,122 @@
  */
 App.controller('lab-controller', function ($scope, $modal, $log, $http) {
 
+    $scope.list = [{
+        "id": 1,
+        "title": "1. dragon-breath",
+        "mainName": "Main container template",
+        "icon": "assets/images/material-icon.png",
+        "number": 4,
+        "props": {
+            "color": "green",
+            "isSecuential": true
+        },
+        "items": []
+    }, {
+        "id": 2,
+        "title": "2. moiré-vision",
+        "name": "Name",
+        "icon": "assets/images/material-icon.png",
+        "number": 4,
+        "props": {
+            "color": "green",
+            "isSecuential": true
+        },
+        "items": [{
+            "id": 21,
+            "title": "2.1. tofu-animation",
+            "name": "Name",
+            "icon": "assets/images/material-icon.png",
+            "number": 4,
+            "props": {
+                "color": "green",
+                "isSecuential": true
+            },
+            "items": [{
+                "id": 211,
+                "title": "2.1.1. spooky-giraffe",
+                "name": "Name",
+                "icon": "assets/images/material-icon.png",
+                "number": 4,
+                "props": {
+                    "color": "green",
+                    "isSecuential": true
+                },
+                "items": []
+            }, {
+                "id": 212,
+                "title": "2.1.2. bubble-burst",
+                "name": "Name",
+                "icon": "assets/images/material-icon.png",
+                "number": 4,
+                "props": {
+                    "color": "green",
+                    "isSecuential": true
+                },
+                "items": []
+            }],
+        }, {
+            "id": 22,
+            "title": "2.2. barehand-atomsplitting",
+            "name": "Name",
+            "icon": "assets/images/material-icon.png",
+            "number": 4,
+            "props": {
+                "color": "green",
+                "isSecuential": true
+            },
+            "items": []
+        }],
+    }, {
+        "id": 3,
+        "title": "3. unicorn-zapper",
+        "name": "Name",
+        "icon": "assets/images/material-icon.png",
+        "number": 4,
+        "props": {
+            "color": "green",
+            "isSecuential": true
+        },
+        "items": []
+    }, {
+        "id": 4,
+        "title": "4. romantic-transclusion",
+        "name": "Name",
+        "icon": "assets/images/material-icon.png",
+        "number": 4,
+        "props": {
+            "color": "green",
+            "isSecuential": true
+        },
+        "items": []
+    }];
 
-    // Get json file
-    //$http.get('components/lab/mainTemplateData.json')
-    //    .then(function(res){
-    //        $scope.mainTemplateData = res.data;
-    //        $scope.containers = res.data.containers;
-    //    });
-    //
+
+    $scope.selectedItem = {};
+
+    $scope.options = {
+    };
+
+    $scope.remove = function(scope) {
+        scope.remove();
+    };
+
+    $scope.toggle = function(scope) {
+        scope.toggle();
+    };
+
+    $scope.newSubItem = function(scope) {
+        var nodeData = scope.$modelValue;
+        nodeData.items.push({
+            id: nodeData.id * 10 + nodeData.items.length,
+            title: nodeData.title + '.' + (nodeData.items.length + 1),
+            items: []
+        });
+    };
+
+
+
+
     var containers = {
         "mainName": "Main container template",
         "icon": "assets/images/material-icon.png",
@@ -49,14 +157,41 @@ App.controller('lab-controller', function ($scope, $modal, $log, $http) {
                     "isSecuential": true,
                     "isCollapsed": true
                 }
+            },
+            {
+                "name": "Container 2",
+                "icon": "assets/images/material-icon.png",
+                "number": 6,
+                "type": "container",
+                "props": {
+                    "color": "blue",
+                    "isSecuential": true,
+                    "isCollapsed": true
+                },
+                "items": [{
+                    "name": "Container 2",
+                    "icon": "assets/images/material-icon.png",
+                    "number": 6,
+                    "type": "container",
+                    "props": {
+                        "color": "blue",
+                        "isSecuential": true,
+                        "isCollapsed": true
+                    },
+                    "items": [{
+                        "name": "Container 2",
+                        "icon": "assets/images/material-icon.png",
+                        "number": 6,
+                        "type": "container",
+                        "props": {
+                            "color": "blue",
+                            "isSecuential": true,
+                            "isCollapsed": true
+                        }
+                    }]
+                }]
             }
-
-
         ]
-
-
-
-
     };
     $scope.containers = containers;
 })
@@ -70,7 +205,7 @@ App.controller('lab-controller', function ($scope, $modal, $log, $http) {
             restrict: 'E',
             //templateUrl: 'components/lab/container-template.html',
             terminal: true,
-            scope: { val: '=', parentData:'=' },
+            scope: {val: '=', parentData: '='},
             link: function (scope, element, attrs) {
                 var template = '<span>{{val.name}}</span>';
 
@@ -83,10 +218,10 @@ App.controller('lab-controller', function ($scope, $modal, $log, $http) {
                         '</llq-template-container></div>';
                 }
 
-                scope.deleteMe = function(index) {
-                    if(scope.parentData) {
+                scope.deleteMe = function (index) {
+                    if (scope.parentData) {
                         var itemIndex = scope.parentData.indexOf(scope.val);
-                        scope.parentData.splice(itemIndex,1);
+                        scope.parentData.splice(itemIndex, 1);
                     }
                     scope.val = {};
                 };
@@ -100,7 +235,7 @@ App.controller('lab-controller', function ($scope, $modal, $log, $http) {
         return {
             restrict: 'E',
             templateUrl: 'components/lab/template-container-header.html',
-            scope: { val: '=' },
+            scope: {val: '='},
             link: function (scope, element, attrs) {
 
             }

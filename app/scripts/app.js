@@ -15,7 +15,8 @@ var App = angular.module('App', [
     'ui.select',
     'ngSanitize',
     'as.sortable',       // angular sortable
-    'ui.validate'
+    'ui.validate',
+    'ui.tree'
 ])
 
 .config(function($stateProvider, $urlRouterProvider, uiSelectConfig)

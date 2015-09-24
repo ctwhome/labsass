@@ -29,30 +29,155 @@
 <!-- Content -->
 
 <div class="portlet light ">
-    <div class="portlet-title main-template">
 
-        <div class="caption">
-            <img src="{{containers.icon}}" width="50" alt="Template Image"/>
-            <span class="caption-subject font-red-sunglo bold uppercase">
-                {{containers.mainName}}
-            </span>
+    <div ui-tree>
+        <ol ui-tree-nodes="" ng-model="list">
+            <div class="template-container" ng-repeat="item in val.items">
+                <div class="header">
+                    <div class="title">
+                        <img src="{{val.icon}}" alt="Template Image"/>
+                        <span class="caption-subject font-red-sunglo bold uppercase">{{val.name}}</span>
+                    </div>
+                    <div class="flex"></div>
+                    <div class="actions">
+                        <a class="collapse-button" ng-class="isCollapse ? 'expand' : 'collapse'" ng-click="isCollapse = !isCollapse"></a>
+                        <a class="btn btn-circle btn-icon-only btn-default" href="#" ng-click="deleteMe()" ng-show="val.name"><i class="icon-trash"></i></a>
+                        <a class="btn btn-circle btn-icon-only btn-default" href="#"><i class="icon-wrench"></i></a>
+                        <a class="btn btn-circle btn-icon-only btn-default" href="#"><i class="icon-info"></i></a>
+                        <a class="btn green-haze btn-circle btn-sm" href="" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"><i class="fa fa-plus"></i>Add</a><span class="number-data">{{val.number}}</span>
+                    </div>
+                </div>
+                <hr/>
+                <div class="body"></div>
+            </div>
+        </ol>
+    </div>
+
+
+    <!-- Nested list template -->
+    <script type="text/ng-template" id="items_renderer.html">
+
+<div class="template-container">
+
+
+        <!--<div ui-tree-handle>-->
+        <!--<a class="btn btn-success btn-xs" data-nodrag ng-click="toggle(this)">-->
+        <!--<span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span>-->
+        <!--</a>-->
+        <!--{{item.title}}-->
+        <!--<a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)">-->
+        <!--<span class="glyphicon glyphicon-remove"></span>-->
+        <!--</a>-->
+        <!--<a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;">-->
+        <!--<span class="glyphicon glyphicon-plus"></span>-->
+        <!--</a>-->
+        <!--</div>-->
+
+
+        <div class="header" ui-tree-handle>
+            <div class="title">
+                <img src="{{item.icon}}" alt="Template Image"/>
+                <span class="caption-subject font-red-sunglo bold uppercase">{{item.name}}</span>
+            </div>
+            <div class="flex"></div>
+            <div class="actions">
+                <a  class="collapse-button" ng-class="collapsed ? 'expand' : 'collapse'" data-nodrag ng-click="toggle(this)"></a>
+
+                <a class="btn btn-circle btn-icon-only btn-default" data-nodrag ng-click="remove(this)" ><i class="icon-trash"></i></a>
+                <a class="btn btn-circle btn-icon-only btn-default" data-nodrag ng-click=""><i class="icon-wrench"></i></a>
+                <!--<a class="btn btn-circle btn-icon-only btn-default" href="#"><i class="icon-info"></i></a>-->
+                <a class="btn green-haze btn-circle btn-sm" href=""
+                   data-toggle="dropdown" data-hover="dropdown"
+                   data-close-others="true"
+                   data-nodrag ng-click="newSubItem(this)"
+                        ><i class="fa fa-plus"></i>Add</a><span class="number-data">{{item.number}}</span>
+
+            </div>
+        </div>
+        <hr/>
+
+        <!-- Body -->
+        <div class="body">
+            Body
         </div>
 
-        <div class="actions">
-            <a class="btn btn-circle btn-icon-only btn-default" href="#">
-                <i class="icon-wrench"></i>
-            </a>
+        <!-- Recursive -->
+        <ol ui-tree-nodes="options" ng-model="item.items" ng-class="{hidden: collapsed}">
+            <li ng-repeat="item in item.items" ui-tree-node ng-include="'items_renderer.html'"></li>
+        </ol>
 
-            <a class="btn green-haze btn-circle btn-sm" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                <i class="fa fa-plus"></i>
-                Add
-            </a>
-            <span class="number-container">
-                {{containers.number}}
-            </span>
+</div>
+
+    </script>
+
+    <div ui-tree="options">
+        <ol ui-tree-nodes ng-model="list">
+            <li ng-repeat="item in list" ui-tree-node ng-include="'items_renderer.html'"></li>
+        </ol>
+    </div>
+
+</div>
+
+
+<!--<div ui-tree>-->
+<!--<ol ui-tree-nodes="" ng-model="list">-->
+<!--<li ng-repeat="item in list" ui-tree-node class="template-container">-->
+<!--<div ui-tree-handle>-->
+<!--{{item.title}}-->
+<!--</div>-->
+<!--<ol ui-tree-nodes="" ng-model="item.items">-->
+<!--<li ng-repeat="subItem in item.items" ui-tree-node>-->
+<!--<div ui-tree-handle>-->
+<!--{{subItem.title}}-->
+<!--</div>-->
+<!--</li>-->
+<!--</ol>-->
+<!--</li>-->
+<!--</ol>-->
+<!--</div>-->
+
+<div class="container ng-scope">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3>Draggable Tree</h3>
+
+
+                    <!--<div class="col-lg-6">-->
+                    <!--<h3>Full tree</h3>-->
+                    <!--<pre class="code">{{ list | json }}</pre>-->
+                    <!--</div>-->
+                </div>
+            </div>
         </div>
     </div>
 
-    <llq-template-container val="containers"></llq-template-container>
+
+    <!--<div class="portlet-title main-template">-->
+
+    <!--<div class="caption">-->
+    <!--<img src="{{containers.icon}}" width="50" alt="Template Image"/>-->
+    <!--<span class="caption-subject font-red-sunglo bold uppercase">-->
+    <!--{{containers.mainName}}-->
+    <!--</span>-->
+    <!--</div>-->
+
+    <!--<div class="actions">-->
+    <!--<a class="btn btn-circle btn-icon-only btn-default" href="#">-->
+    <!--<i class="icon-wrench"></i>-->
+    <!--</a>-->
+
+    <!--<a class="btn green-haze btn-circle btn-sm" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">-->
+    <!--<i class="fa fa-plus"></i>-->
+    <!--Add-->
+    <!--</a>-->
+    <!--<span class="number-container">-->
+    <!--{{containers.number}}-->
+    <!--</span>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--<llq-template-container val="containers"></llq-template-container>-->
 
 </div>
