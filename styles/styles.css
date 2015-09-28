@@ -13847,6 +13847,10 @@ body.page-boxed {
   padding: 5px 10px;
   border: solid 1px #dbdbdb;
   margin: 20px; }
+  .template-container ol li {
+    display: inline-block; }
+    .template-container ol li > .template-container {
+      background-color: blue; }
   .template-container .header .title {
     display: inline-block;
     vertical-align: middle; }

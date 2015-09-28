@@ -6,12 +6,23 @@ $general-img-path: "../../img/";
     //@extend .flex-box;
 }
 
+
 .template-container {
     min-width: 50%;
     padding: 5px 10px;
     border: solid 1px $border-template-container;
     margin: 20px;
 
+
+   ol li{
+
+       display: inline-block;
+       //max-width: 200px;
+    > .template-container {
+        background-color: blue;
+    }
+
+   }
     .header {
         @extend .flex-box;
         .title {
