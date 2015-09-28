@@ -32,140 +32,180 @@
 
     <!-- Main template -->
     <div class="row">
-        <h3> {{trees.title}}</h3>
+        <h3> {{llqtemplate.title}}</h3>
+
+        <!--Add button-->
+        <div class="btn-group" dropdown>
+            <button type="button" class="btn btn-primary" dropdown-toggle>Add <span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="button-template-url">
+                <li role="menuitem"><a data-nodrag ng-click="newSubItem()" href="#">Item</a></li>
+                <li role="menuitem"><a data-nodrag ng-click="newContainer(true)" href="#">Container
+                    (Sequential)</a></li>
+                <li role="menuitem"><a data-nodrag ng-click="newContainer(false)" href="#">Container (NO
+                    Sequential)</a></li>
+            </ul>
+        </div>
+
+        <hr/>
 
         <!--  Elements in template -->
-        <div ng-repeat="tree in trees.nodes" ui-tree class="col-sm-3">
-            <h3> {{tree.titleTree}}</h3>
+
+
+
+        <!--Reading the model with elements and containers-->
+
+        <div ng-repeat="tree in llqtemplate.nodes" ui-tree class="col-sm-5">
+            <h3> {{tree.columnName}}</h3>
             <ol ui-tree-nodes="" ng-model="tree.nodes">
+
                 <li ng-repeat="node in tree.nodes" ui-tree-node ng-include="'template-element.html'"></li>
+
+
             </ol>
         </div>
     </div>
 
-</div>
+
+    <p>Show a tree</p>
+    <div ng-include="'container-sequential.html'"></div>
 
 
 
 
 
-<!-- Nested node template -->
-<script type="text/ng-template" id="template-element.html">
-    <div ui-tree-handle class="tree-node tree-node-content">
-        <div class="tree-node-content">
-            <a class="btn btn-success btn-xs" data-nodrag ng-click="toggle(this)"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
-            <input type="text" ng-model="node.title">
-            <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)"><span class="glyphicon glyphicon-remove"></span></a>
-
-
-            <div class="btn-group" dropdown>
-                <button id="button-template-url" type="button" class="btn btn-primary" dropdown-toggle ng-disabled="disabled">
-                    Add <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="button-template-url">
-                    <li role="menuitem"><a data-nodrag ng-click="newSubItem(this)" href="#">Item</a></li>
-                    <li role="menuitem"><a data-nodrag ng-click="newSubItem(this)" href="#">Container
-                        (Sequential)</a></li>
-                    <li role="menuitem"><a data-nodrag ng-click="newSeqContainer(this)" href="#">Container (NO
-                        Sequential)</a></li>
-                </ul>
-            </div>
-
-
-
+    <!-- Tree template-->
+    <script type="text/ng-template" id="container-sequential.html">
+        <div ui-tree>
+            <ol ui-tree-nodes="" ng-model="treee" id="tree-root">
+                <li ng-repeat="item in treee" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+            </ol>
         </div>
-    </div>
-    <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
-        <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'template-element.html'"></li>
-
-        <h5 ng-if="node.nodes.length > 0">
-            Nodes: {{node.nodes}}
-        </h5>
-    </ol>
+    </script>
 
 
-    <!-- if the container has a tree inside -->
-    <!--<ol ui-tree-nodes="" ng-model="tree.nodes">-->
-    <!--<li ng-repeat="node in tree.nodes" ui-tree-node ng-include="'template-element.html'"></li>-->
+    <!-- Nested node template -->
+    <script type="text/ng-template" id="nodes_renderer.html">
+        <div ui-tree-handle>
+            {{item.title}}
+        </div>
+        <ol ui-tree-nodes="" ng-model="node.nodes">
+            <li ng-repeat="item in item.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
+            </li>
+        </ol>
+    </script>
+
+
+    <!-- Nested node template -->
+    <script type="text/ng-template" id="template-element.html">
+        <div ui-tree-handle class="tree-node tree-node-content">
+            <div class="tree-node-content">
+                <a class="btn btn-success btn-xs" data-nodrag ng-click="toggle(this)"><span class="glyphicon" ng-class="{'glyphicon-chevron-right': collapsed, 'glyphicon-chevron-down': !collapsed}"></span></a>
+                <input type="text" ng-model="node.title">
+                <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="remove(this)"><span class="glyphicon glyphicon-remove"></span></a>
+
+
+                <div class="btn-group" dropdown>
+                    <button id="button-template-url" type="button" class="btn btn-primary" dropdown-toggle ng-disabled="disabled">
+                        Add <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="button-template-url">
+                        <li role="menuitem"><a data-nodrag ng-click="newSubItem(this)" href="#">Item</a></li>
+                        <li role="menuitem"><a data-nodrag ng-click="newSubItem(this)" href="#">Container
+                            (Sequential)</a></li>
+                        <li role="menuitem"><a data-nodrag ng-click="newSeqContainer(this)" href="#">Container (NO
+                            Sequential)</a></li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+        <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
+
+            <!-- IF IS AN ELEMENT-->
+            <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'template-element.html'"></li>
+
+            <!-- IF IS A CONTAINER-->
+            <div ng-include="'container-sequential.html'"></div>
+
+        </ol>
+
+
+        <!-- if the container has a tree inside -->
+        <!--<ol ui-tree-nodes="" ng-model="tree.nodes">-->
+        <!--<li ng-repeat="node in tree.nodes" ui-tree-node ng-include="'template-element.html'"></li>-->
+        <!--</ol>-->
+
+
+    </script>
+
+
+    <!--<div ui-tree>-->
+    <!--<ol ui-tree-nodes="" ng-model="list">-->
+    <!--<div class="template-container" ng-repeat="item in val.items">-->
+    <!--<div class="header">-->
+    <!--<div class="title">-->
+    <!--<img src="{{val.icon}}" alt="Template Image"/>-->
+    <!--<span class="caption-subject font-red-sunglo bold uppercase">{{val.name}}</span>-->
+    <!--</div>-->
+    <!--<div class="flex"></div>-->
+    <!--<div class="actions">-->
+    <!--<a class="collapse-button" ng-class="isCollapse ? 'expand' : 'collapse'" ng-click="isCollapse = !isCollapse"></a>-->
+    <!--<a class="btn btn-circle btn-icon-only btn-default" href="#" ng-click="deleteMe()" ng-show="val.name"><i class="icon-trash"></i></a>-->
+    <!--<a class="btn btn-circle btn-icon-only btn-default" href="#"><i class="icon-wrench"></i></a>-->
+    <!--<a class="btn btn-circle btn-icon-only btn-default" href="#"><i class="icon-info"></i></a>-->
+    <!--<a class="btn green-haze btn-circle btn-sm" href="" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"><i class="fa fa-plus"></i>Add</a><span class="number-data">{{val.number}}</span>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<hr/>-->
+    <!--<div class="body"></div>-->
+    <!--</div>-->
     <!--</ol>-->
+    <!--</div>-->
 
 
+    <!--<div ui-tree>-->
+    <!--<ol ui-tree-nodes="" ng-model="list">-->
+    <!--<li ng-repeat="item in list" ui-tree-node class="template-container">-->
+    <!--<div ui-tree-handle>-->
+    <!--{{item.title}}-->
+    <!--</div>-->
+    <!--<ol ui-tree-nodes="" ng-model="item.items">-->
+    <!--<li ng-repeat="subItem in item.items" ui-tree-node>-->
+    <!--<div ui-tree-handle>-->
+    <!--{{subItem.title}}-->
+    <!--</div>-->
+    <!--</li>-->
+    <!--</ol>-->
+    <!--</li>-->
+    <!--</ol>-->
+    <!--</div>-->
 
 
+    <!--<div class="portlet-title main-template">-->
 
-</script>
+    <!--<div class="caption">-->
+    <!--<img src="{{containers.icon}}" width="50" alt="Template Image"/>-->
+    <!--<span class="caption-subject font-red-sunglo bold uppercase">-->
+    <!--{{containers.mainName}}-->
+    <!--</span>-->
+    <!--</div>-->
 
+    <!--<div class="actions">-->
+    <!--<a class="btn btn-circle btn-icon-only btn-default" href="#">-->
+    <!--<i class="icon-wrench"></i>-->
+    <!--</a>-->
 
+    <!--<a class="btn green-haze btn-circle btn-sm" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">-->
+    <!--<i class="fa fa-plus"></i>-->
+    <!--Add-->
+    <!--</a>-->
+    <!--<span class="number-container">-->
+    <!--{{containers.number}}-->
+    <!--</span>-->
+    <!--</div>-->
+    <!--</div>-->
 
-
-
-
-<!--<div ui-tree>-->
-<!--<ol ui-tree-nodes="" ng-model="list">-->
-<!--<div class="template-container" ng-repeat="item in val.items">-->
-<!--<div class="header">-->
-<!--<div class="title">-->
-<!--<img src="{{val.icon}}" alt="Template Image"/>-->
-<!--<span class="caption-subject font-red-sunglo bold uppercase">{{val.name}}</span>-->
-<!--</div>-->
-<!--<div class="flex"></div>-->
-<!--<div class="actions">-->
-<!--<a class="collapse-button" ng-class="isCollapse ? 'expand' : 'collapse'" ng-click="isCollapse = !isCollapse"></a>-->
-<!--<a class="btn btn-circle btn-icon-only btn-default" href="#" ng-click="deleteMe()" ng-show="val.name"><i class="icon-trash"></i></a>-->
-<!--<a class="btn btn-circle btn-icon-only btn-default" href="#"><i class="icon-wrench"></i></a>-->
-<!--<a class="btn btn-circle btn-icon-only btn-default" href="#"><i class="icon-info"></i></a>-->
-<!--<a class="btn green-haze btn-circle btn-sm" href="" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"><i class="fa fa-plus"></i>Add</a><span class="number-data">{{val.number}}</span>-->
-<!--</div>-->
-<!--</div>-->
-<!--<hr/>-->
-<!--<div class="body"></div>-->
-<!--</div>-->
-<!--</ol>-->
-<!--</div>-->
-
-
-<!--<div ui-tree>-->
-<!--<ol ui-tree-nodes="" ng-model="list">-->
-<!--<li ng-repeat="item in list" ui-tree-node class="template-container">-->
-<!--<div ui-tree-handle>-->
-<!--{{item.title}}-->
-<!--</div>-->
-<!--<ol ui-tree-nodes="" ng-model="item.items">-->
-<!--<li ng-repeat="subItem in item.items" ui-tree-node>-->
-<!--<div ui-tree-handle>-->
-<!--{{subItem.title}}-->
-<!--</div>-->
-<!--</li>-->
-<!--</ol>-->
-<!--</li>-->
-<!--</ol>-->
-<!--</div>-->
-
-
-<!--<div class="portlet-title main-template">-->
-
-<!--<div class="caption">-->
-<!--<img src="{{containers.icon}}" width="50" alt="Template Image"/>-->
-<!--<span class="caption-subject font-red-sunglo bold uppercase">-->
-<!--{{containers.mainName}}-->
-<!--</span>-->
-<!--</div>-->
-
-<!--<div class="actions">-->
-<!--<a class="btn btn-circle btn-icon-only btn-default" href="#">-->
-<!--<i class="icon-wrench"></i>-->
-<!--</a>-->
-
-<!--<a class="btn green-haze btn-circle btn-sm" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">-->
-<!--<i class="fa fa-plus"></i>-->
-<!--Add-->
-<!--</a>-->
-<!--<span class="number-container">-->
-<!--{{containers.number}}-->
-<!--</span>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--<llq-template-container val="containers"></llq-template-container>-->
+    <!--<llq-template-container val="containers"></llq-template-container>-->
 
 </div>

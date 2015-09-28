@@ -19,12 +19,27 @@ App.controller('lab-controller', function ($scope, $modal, $log, $http) {
     };
 
     $scope.newSubItem = function (scope) {
-        var nodeData = scope.$modelValue;
-        nodeData.nodes.push({
-            id: nodeData.id * 10 + nodeData.nodes.length,
-            title: nodeData.title + '.' + (nodeData.nodes.length + 1),
-            nodes: []
-        });
+
+        // Create node in main node
+        if (!scope) {
+            var node = {
+                "id": 1,
+                "type": "element",
+                "title": "Node in the main!!",
+                "nodes": []
+            }
+            $scope.llqtemplate.push(node);
+        }
+
+        //insert node from the an internal node
+        else {
+            var nodeData = scope.$modelValue;
+            nodeData.nodes.push({
+                id: nodeData.id * 10 + nodeData.nodes.length,
+                title: nodeData.title + '.' + (nodeData.nodes.length + 1),
+                nodes: []
+            });
+        }
     };
 
 
@@ -32,6 +47,7 @@ App.controller('lab-controller', function ($scope, $modal, $log, $http) {
 
 
         var nodeData = scope.$modelValue;
+        console.log("nodes: ", nodeData);
 
         // Add the node
         nodeData.nodes.push({
@@ -51,57 +67,109 @@ App.controller('lab-controller', function ($scope, $modal, $log, $http) {
 
         //$scope.newSubItem(scope);
 
-
     }
 
-    $scope.trees =
+    /**
+     * Add new container
+     * @param isSequential {boolean}
+     * @param scope
+     */
+    $scope.newContainer = function (isSequential, scope) {
+
+        // Create node in main node
+        if (!scope) {
+            var node = {
+                "id": 1,
+                "type": "container",
+                "isSequential": isSequential,
+                "title": "New container. Sequential: "+isSequential,
+                "nodes": []
+            }
+            $scope.template.push(node);
+        }
+
+        //insert node from the an internal node
+        else {
+            var nodeData = scope.$modelValue;
+            // Add the node
+            nodeData.nodes.push({
+                id: nodeData.id * 10 + nodeData.nodes.length,
+                title: nodeData.title + '.' + (nodeData.nodes.length + 1),
+                nodes: []
+            });
+        }
+    }
+
+    $scope.treee = [
+
+        //{
+        //    'id': 1,
+        //    'title': 'tree1 - item1',
+        //    'nodes': []
+        //},
+        //{
+        //    'id': 2,
+        //    'title': 'tree1 - item2',
+        //    'nodes': [
+        //
+        //        {
+        //            titleTree: 'Placeholder',
+        //            nodes: []
+        //        },
+        //        {
+        //            'id': 1,
+        //            'title': 'subtree1.1 - item1',
+        //            'nodes': []
+        //        },
+        //        {
+        //            'id': 2,
+        //            'title': 'subtree1.2 - item2',
+        //            'nodes': []
+        //        }
+        //
+        //    ]
+        //}
+    ]
+
+    $scope.llqtemplate =
     {
         //Preferences for the main template / tree
         title: "Main template",
+        isSequential : false,
         nodes: [
             {
-                titleTree: 'tree 1',
-
-                // id this exists, create a new tree in the horizontal
-                trees:{
-                    titleTree: 'Placeholder',
-                    nodes: []
-                },
-                nodes: [
+                'columnName': 'Column 1',
+                'isSequential' : true,
+                'nodes': [
                     {
                         'id': 1,
-                        'title': 'tree1 - item1',
-                        'nodes': []
-                    },
-                    {
+                        'title': 'Link 1',
+                        'type': 'link',
+                    },{
                         'id': 2,
-                        'title': 'tree1 - item2',
+                        'title': 'Classroom Session 1',
+                        'type': 'classroom',
+                    },{
+                        'id': 3,
+                        'title': 'NON Sequential container',
+                        'type': 'container',
+                        isSequential : false,
                         'nodes': [
-
                             {
-                                titleTree: 'Placeholder',
-                                nodes: []
-                            },
-                            //{
-                            //    'id': 1,
-                            //    'title': 'subtree1.1 - item1',
-                            //    'nodes': []
-                            //},
-                            //{
-                            //    'id': 2,
-                            //    'title': 'subtree1.2 - item2',
-                            //    'nodes': []
-                            //}
-
+                                'id': 4,
+                                'title': 'Classroom Session 1',
+                                'type': 'classroom',
+                            },{
+                                'columnName': 'placeholder',
+                                'title': 'Placeholder',
+                                'nodes': []
+                            }
                         ]
                     }
                 ]
             },
-
-
-
             {
-                titleTree: 'Placeholder',
+                columnName: 'placeholder',
                 nodes: []
             }
         ]
