@@ -15,8 +15,12 @@ App.controller('lab-controller', function ($scope, $modal, $log, $http) {
     $scope.llqtemplate = {
         title: "Main template",
         isSequential: false,
-        mainContainer: [
-        ]
+        "icon": "assets/images/material-icon.png",
+        "number": 4,
+        "props": {
+            "color": "green",
+        },
+        mainContainer: []
     }
 
 
@@ -40,11 +44,16 @@ App.controller('lab-controller', function ($scope, $modal, $log, $http) {
     /**
      * New Element without children, like link or classRoom
      */
-    $scope.newElement = function(scope){
+    $scope.newElement = function (scope) {
 
         var node = {
             "type": "element",
-            "title": "Element link or classroom",
+            "title": "Element",
+            "icon": "assets/images/material-icon.png",
+            "number": 4,
+            "props": {
+                "color": "green",
+            },
         }
 
         if (scope == $scope.llqtemplate.mainContainer) {
@@ -56,7 +65,6 @@ App.controller('lab-controller', function ($scope, $modal, $log, $http) {
             nodeData.nodes.push(node);
         }
     }
-
 
 
     /**
@@ -66,27 +74,28 @@ App.controller('lab-controller', function ($scope, $modal, $log, $http) {
      * @param inMainTemplate {boolean}
      */
     $scope.newContainer = function (scope, isSequential) {
-        var node = {
+        var container = {
             "type": "container",
             "isSequential": isSequential,
-            "title": "New container. Sequential: " + isSequential,
+            "title": "Secuential",
+            "icon": "assets/images/material-icon.png",
+            "number": 4,
+            "props": {
+                "color": "green",
+            },
             "nodes": []
         }
 
         //Insert node in main template
         if (scope == $scope.llqtemplate.mainContainer) {
-            $scope.llqtemplate.mainContainer.push(node);
+            $scope.llqtemplate.mainContainer.push(container);
         }
         // Insert as subItem
         else {
             var nodeData = scope.$modelValue;
-            nodeData.nodes.push(node);
+            nodeData.nodes.push(container);
         }
     }
-
-
-
-
 })
 
 /**

@@ -1,7 +1,7 @@
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all");
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
 @import url("fonts/simple-line-icons/simple-line-icons.min.css");
-.flex-box, .template-container .header {
+.flex-box, .main-template .header, .template-container .header {
   width: 100%;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -13842,15 +13842,27 @@ body.page-boxed {
   .change-photo:hover {
     background-color: #e3e3e3; }
 
+img.template-builder-icon {
+  width: 50px; }
+
+.main-template .header .title {
+  display: inline-block;
+  vertical-align: middle; }
+  .main-template .header .title img {
+    width: 40px; }
+
+.main-template .header hr {
+  margin: 3px; }
+
+.main-template .header .actions {
+  display: inline-block;
+  vertical-align: middle; }
+
 .template-container {
   min-width: 50%;
   padding: 5px 10px;
-  border: solid 1px #dbdbdb;
-  margin: 20px; }
-  .template-container ol li {
-    display: inline-block; }
-    .template-container ol li > .template-container {
-      background-color: blue; }
+  border: solid 1px #dedede;
+  margin: 10px; }
   .template-container .header .title {
     display: inline-block;
     vertical-align: middle; }
@@ -13876,5 +13888,18 @@ body.page-boxed {
       padding: 4px 6px 2px 6px;
       height: 27px;
       width: 27px; }
+
+.llqtemplate-element {
+  margin: 10px;
+  max-width: 350px; }
+  .llqtemplate-element .body {
+    padding: 10px;
+    position: relative;
+    background-color: white;
+    border: solid 1px #dedede;
+    border-top: none; }
+
+.sequential ol li {
+  display: inline-block; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,28 +1,40 @@
 // Move to colors
-$border-template-container: #dbdbdb;
+$border-template-container: #dedede;
 $general-img-path: "../../img/";
 
-.main-template {
-    //@extend .flex-box;
+img.template-builder-icon {
+    width: 50px;
 }
 
+.main-template {
+    .header {
+        @extend .flex-box;
+        .title {
+            img {
+                width: 40px;
+            }
+            display: inline-block;
+            vertical-align: middle;
+        }
+        hr {
+            margin: 3px;
+        }
+        .actions {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}
 
 .template-container {
     min-width: 50%;
     padding: 5px 10px;
     border: solid 1px $border-template-container;
-    margin: 20px;
+    margin: 10px;
 
-
-   ol li{
-
-       display: inline-block;
-       //max-width: 200px;
-    > .template-container {
-        background-color: blue;
+    ol li {
     }
 
-   }
     .header {
         @extend .flex-box;
         .title {
@@ -39,7 +51,7 @@ $general-img-path: "../../img/";
             display: inline-block;
             vertical-align: middle;
 
-            a.collapse-button{
+            a.collapse-button {
                 display: inline-block;
                 width: 14px;
                 height: 14px;
@@ -60,5 +72,25 @@ $general-img-path: "../../img/";
                 width: 27px;
             }
         }
+    }
+
+}
+
+.llqtemplate-element {
+    margin: 10px;
+    max-width: 350px;
+    .body {
+        padding: 10px;
+        position: relative;
+        background-color: white;
+        border: solid 1px $border-template-container;
+        border-top: none;
+    }
+}
+
+.sequential {
+    //background-color: #F8FAFF;
+    ol li {
+        display: inline-block;
     }
 }
